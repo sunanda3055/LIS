@@ -1,0 +1,89 @@
+<% include ../partials/header %>
+
+<% include ../partials/adminNav %>
+
+<div class="container mt-5 pt-2">
+    <div class="row">
+        <div class="col-md-3">
+            <img src="/images/<%=user.image || "profile.png" %>" class="card-img-top">
+        </div>
+        <div class="col-md-6">
+            <h4 class="card-header pb-3">Personal Informations</h4>
+            
+            <ul class="list-group list-group-flush border mt-4">
+              <li class="list-group-item"><div class="w-50">First Name :</div><div class="w-50 font-weight-bold"><%=user.firstName%></div></li>
+              <li class="list-group-item"><div class="w-50">Last Name :</div><div class="w-50 font-weight-bold"><%=user.lastName%></div></li>
+              <li class="list-group-item"><div class="w-50">Username :</div><div class="w-50 font-weight-bold"><%=user.username%></div></li>
+              <li class="list-group-item"><div class="w-50">Joined :</div><div class="w-50 font-weight-bold"><%=user.joined.toDateString()%></div></li>
+              <li class="list-group-item"><div class="w-50">Email :</div><div class="w-50 font-weight-bold"><%=user.email%></div></li>
+              <li class="list-group-item"><div class="w-50">Issued books :</div>
+                <div class="w-50 font-weight-bold"><% issues.forEach(issue => { %>
+                    <%=issue.book_info.title + ", "%>
+                <% }) %></div>
+              </li>
+              <li class="list-group-item"><div class="w-50">Address :</div><div class="w-50 font-weight-bold"><%=user.address%></div></li>
+              <li class="list-group-item text-danger font-weight-bold"><div class="w-50">Violation Flag :</div><div class="w-50 font-weight-bold"><%=user.violationFlag%></div></li>
+              <li class="list-group-item"><div class="w-50">Due Fines :</div><div class="w-50 font-weight-bold">$<%=user.fines%></div></li>
+            </ul>
+        </div>
+        <div class="col-md-3">
+            <div class="card" style="width: 18rem;">
+              <div class="card-header text-center">
+                <strong>Recent activities</strong>
+              </div>
+              <ul class="list-group list-group-flush">
+                  <% for(var i = 0; i < activities.length; i++) { %>
+                    <%if(i > 5) break; %>
+                    <% if(activities[i].category =="Issue") { %>
+                        <li class="list-group-item">
+                           <%=user.username%> issued <%=activities[i].info.title%> at <%=activities[i].entryTime.toDateString()%> 
+                        </li>
+                    <% } else if(activities[i].category =="Return") { %>
+                        <li class="list-group-item">
+                           <%=user.username%> returned <%=activities[i].info.title%> at <%=activities[i].entryTime.toDateString()%> 
+                        </li>
+                    <% }  else if(activities[i].category =="Renew") { %>
+                        <li class="list-group-item">
+                           <%=user.username%> renewed <%=activities[i].info.title%> at <%=activities[i].entryTime.toDateString()%> 
+                        </li>
+                    <% }  else if(activities[i].category =="Update Profile") { %>
+                        <li class="list-group-item">
+                           <%=user.username%> updated profile at <%=activities[i].entryTime.toDateString()%> 
+                        </li>
+                    <% }  else if(activities[i].category =="Update Password") { %>
+                        <li class="list-group-item">
+                           <%=user.username%> updated password at <%=activities[i].entryTime.toDateString()%> 
+                        </li>
+                    <% }  else if(activities[i].category =="Upload Photo") { %>
+                        <li class="list-group-item">
+                           <%=user.username%> uploaded photo at <%=activities[i].entryTime.toDateString()%> 
+                        </li>
+                    <% } else if(activities[i].category =="Update Password") { %>
+                        <li class="list-group-item">
+                           <%=user.username%> updated password at <%=activities[i].entryTime.toDateString()%> 
+                        </li>
+                    <% }  else if(activities[i].category =="Comment") { %>
+                        <li class="list-group-item">
+                           <%=user.username%> commented on <%=activities[i].info.title%> at <%=activities[i].entryTime.toDateString()%> 
+                        </li>
+                    <% } else if(activities[i].category =="Update Comment") { %>
+                        <li class="list-group-item">
+                           <%=user.username%> updated comment on <%=activities[i].info.title%> at <%=activities[i].entryTime.toDateString()%> 
+                        </li>
+                    <% } else if(activities[i].category =="Delete Comment") { %>
+                        <li class="list-group-item">
+                           <%=user.username%> deleteted comment on <%=activities[i].info.title%> at <%=activities[i].entryTime.toDateString()%> 
+                        </li>
+                    <% } %>
+                 <% } %>
+                 
+                 <%if(activities.length > 6) { %>
+                 <a href="/admin/users/activities/<%=user._id%>" class="btn btn-primary btn-block">See all...</a>
+                <% } %>
+              </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<% include ../partials/footer %>
