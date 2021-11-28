@@ -41,7 +41,7 @@ exports.getBooks = async(req, res, next) => {
 exports.findBooks = async(req, res, next) => {
    
    var page = req.params.page || 1;
-   const filter = req.body.filter.toLowerCase();
+   const filter = req?.body?.filter?.toLowerCase();
    const value = req.body.searchName;
 
    // show flash message if empty search field is sent to backend

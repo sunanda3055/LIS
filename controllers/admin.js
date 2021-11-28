@@ -148,7 +148,7 @@ exports.getAdminBookInventory = async(req, res, next) => {
 exports.postAdminBookInventory = async(req, res, next) => {
     try {
         let page = req.params.page || 1;
-        const filter = req.body.filter.toLowerCase();
+        const filter = req?.body?.filter?.toLowerCase();
         const value = req.body.searchName;
 
         if(value == "") {
