@@ -65,6 +65,7 @@
                       </td>
                       <td>Issue</td>
                       <td><%=activities[i].entryTime.toDateString()%></td>
+                      <td>s</td>
                   <% } else if(activities[i].category =="Return") { %>
                       <td>
                          <%=activities[i].user_id.username || 'This user'%> returned <%=activities[i].info.title%> 

@@ -53,7 +53,7 @@
             <p>Name : <%=user.firstName%> <%=user.lastName%></p>
             <p>Email : <%=user.email%></p>
             <p>Book Issued : <%=user.bookIssueInfo.length%></p>
-            <p>Due : $<%=user.fines%></p>
+            <p>Due : ₹<%=user.fines%></p>
             <p>Flagged : <%=user.violationFlag%></p>
             <p>Joined : <%=user.joined.toDateString() %></p>
           </div>
@@ -104,7 +104,7 @@
                         </tr>
                  <%  } else if(activity.category == 'Fine') {%>
                          <tr>
-                          <td>You <span class="table-text">paid</span> $<%=activity.fine.amount%> fines</td>
+                          <td>You <span class="table-text">paid</span> ₹<%=activity.fine.amount%> fines</td>
                           <td><%=activity.category%></td>
                           <td><%=activity.fine.date%></td>
                           <td>

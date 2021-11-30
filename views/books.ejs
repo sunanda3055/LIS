@@ -100,8 +100,8 @@
   <div class="container">
     
     <div class="row">
-    <% for(var i = 0; i < books.length; i++) { %>
-    <div class="card col-md-3 text-center">
+      <% for(var i = 0; i < books.length; i++) { %>
+        <div class="card col-md-3 text-center book-card">
           <div class="card-body">
             <h5 class="card-title"> <%=books[i].title%> </h5>
             <p class="text-muted">
@@ -114,7 +114,6 @@
               <small class="text-muted">In stock : <%=books[i].stock%></small>
             </p>
            
-            
             <% if(currentUser && books[i].stock > 0) { var match = false%>
                 <% user.bookIssueInfo.forEach(book_info => { %>
                     <% if(book_info._id.equals(books[i]._id)) { %> 
@@ -132,7 +131,7 @@
             <a href="/books/details/<%=books[i]._id%>" class="btn btn-xs btn-primary">Details</a>
           </div>
         </div>
-    <% } %>
+      <% } %>
     </div>
     <% if (pages > 0) { %>
       <nav class="mb-2 mt-5">
