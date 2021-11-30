@@ -53,8 +53,6 @@ Whole app is divided into three modules.
 - Search books by category, title, author, ISBN
 - Find users by firstname, lastname, email and username
 - Delete user acount
-- Restrict individual user if violate any terms and conditions
-- Send notification to all/individual/filtered user (not ready yet, will be added as soon as I learn socket.io)
 - Browse books showcase
 - Update admin profile and password
 - Add new admin
@@ -69,7 +67,6 @@ Whole app is divided into three modules.
 - Issue books
 - Renew books
 - Return books
-- Pay fines (not ready yet, will be added asap)
 - Browse books showcase
 - Add, edit and delete comment on any books comment section
 - Upload/Update profile picture
