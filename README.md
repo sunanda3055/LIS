@@ -1,6 +1,4 @@
-# This repo is under construction. You may find some parts not working as expected.
-
-# Library-Management-System
+# Library-Information-System
 
 ## Techonologies used in this application
 
